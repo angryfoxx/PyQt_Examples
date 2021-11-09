@@ -7,7 +7,8 @@ import os
 import  sys
 from datetime import datetime
 from PyQt5.QtWidgets import QWidget,QApplication,QVBoxLayout,QHBoxLayout,QTextEdit,QLabel,QPushButton,QFileDialog,QMainWindow,QLineEdit,qApp
-from PyQt5 import QtCore,QtGui
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap,QIcon
 
 class Info(QWidget):# Hata mesajı çıkması için tasarlandı QMessageBox/QErrorBox'ta kullanılabilir
 
@@ -15,17 +16,17 @@ class Info(QWidget):# Hata mesajı çıkması için tasarlandı QMessageBox/QErr
         super(Info, self).__init__()
         self.resize(300,100)
 
-        self.setWindowFlags(QtCore.Qt.Window |
-                            QtCore.Qt.CustomizeWindowHint |
-                            QtCore.Qt.WindowTitleHint |
-                            QtCore.Qt.WindowCloseButtonHint |
-                            QtCore.Qt.WindowStaysOnTopHint |
-                            QtCore.Qt.MSWindowsFixedSizeDialogHint
+        self.setWindowFlags(Qt.Window |
+                            Qt.CustomizeWindowHint |
+                            Qt.WindowTitleHint |
+                            Qt.WindowCloseButtonHint |
+                            Qt.WindowStaysOnTopHint |
+                            Qt.MSWindowsFixedSizeDialogHint
                             )
         self.init_ui()
     def init_ui(self):
         self.setWindowTitle("HATA")
-        self.setWindowIcon(QtGui.QIcon("assets/unsuccesful70x64.svg"))
+        self.setWindowIcon(QIcon("assets/unsuccesful70x64.svg"))
         self.i_buton = QPushButton("Bilgi", self)
         self.i_buton.move(180, 53)
         self.q_buton = QPushButton("Tamam", self)
@@ -34,7 +35,7 @@ class Info(QWidget):# Hata mesajı çıkması için tasarlandı QMessageBox/QErr
         self.mess_label.setStyleSheet("color: Red; font-size 15px; font-weight: bold;")
         self.mess_label.move(86, 10)
         self.img = QLabel(self)
-        self.img.setPixmap(QtGui.QPixmap("assets/unsuccesful70x64.svg"))
+        self.img.setPixmap(QPixmap("assets/unsuccesful70x64.svg"))
         self.img.resize(70, 64)
         self.img.move(20, 13)
 
@@ -44,8 +45,8 @@ class Info(QWidget):# Hata mesajı çıkması için tasarlandı QMessageBox/QErr
     def successful(self):
         self.mess_label.setText("     Mailiniz başarıyla gönderildi!!")
         self.mess_label.setStyleSheet("color: Green; font-size 15px; font-weight: bold;")
-        self.img.setPixmap(QtGui.QPixmap("assets/succesful70x64.svg"))
-        self.setWindowIcon(QtGui.QIcon("assets/succesful70x64.svg"))
+        self.img.setPixmap(QPixmap("assets/succesful70x64.svg"))
+        self.setWindowIcon(QIcon("assets/succesful70x64.svg"))
         self.setWindowTitle("Başarılı")
     def info_(self):
         os.system("start \"\" https://myaccount.google.com/lesssecureapps")
@@ -55,13 +56,13 @@ class Info(QWidget):# Hata mesajı çıkması için tasarlandı QMessageBox/QErr
 class LogIn(QWidget):
     def __init__(self):
         super(LogIn, self).__init__()
-        self.setWindowIcon(QtGui.QIcon("assets/Circle-icons-mail.svg"))
-        self.setWindowFlags(QtCore.Qt.Window |
-                            QtCore.Qt.CustomizeWindowHint |
-                            QtCore.Qt.WindowCloseButtonHint |
-                            QtCore.Qt.WindowTitleHint |
-                            QtCore.Qt.WindowStaysOnTopHint |
-                            QtCore.Qt.MSWindowsFixedSizeDialogHint
+        self.setWindowIcon(QIcon("assets/Circle-icons-mail.svg"))
+        self.setWindowFlags(Qt.Window |
+                            Qt.CustomizeWindowHint |
+                            Qt.WindowCloseButtonHint |
+                            Qt.WindowTitleHint |
+                            Qt.WindowStaysOnTopHint |
+                            Qt.MSWindowsFixedSizeDialogHint
                             )
         self.setWindowTitle("Giriş")
         self.init_ui()
@@ -169,7 +170,7 @@ class Functions_of_mail(QWidget):
 class Menu(QMainWindow):
     def __init__(self,email = "",password = ""):
         super(Menu, self).__init__()
-        self.setWindowIcon(QtGui.QIcon("assets/Circle-icons-mail.svg"))
+        self.setWindowIcon(QIcon("assets/Circle-icons-mail.svg"))
         self.email = email
         self.password = password
         self.setWindowTitle("Mail")
