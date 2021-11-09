@@ -3,7 +3,8 @@ __author__ = "FOX"
 import random
 import  sys
 from PyQt5.QtWidgets import QWidget,QApplication,QVBoxLayout,QLabel,QPushButton,QHBoxLayout,QLineEdit,QMainWindow
-from PyQt5 import QtGui,QtCore
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QIcon,QPixmap
 
 class Tema(QWidget):
     def __init__(self):
@@ -92,15 +93,15 @@ class Main(QMainWindow):
         self.setCentralWidget(self.tema)
         self.setGeometry(500, 190, 700, 500)
         self.setWindowTitle("Password Generator")
-        self.setWindowIcon(QtGui.QIcon("assets/unlock-alt-solid.svg"))
+        self.setWindowIcon(QIcon("assets/unlock-alt-solid.svg"))
         self.resize(0, 0)
-        self.setWindowFlags(QtCore.Qt.Window |
-                            QtCore.Qt.CustomizeWindowHint |
-                            QtCore.Qt.WindowTitleHint |
-                            QtCore.Qt.WindowCloseButtonHint |
-                            QtCore.Qt.WindowStaysOnTopHint |
-                            QtCore.Qt.WindowMinimizeButtonHint |
-                            QtCore.Qt.MSWindowsFixedSizeDialogHint
+        self.setWindowFlags(Qt.Window |
+                            Qt.CustomizeWindowHint |
+                            Qt.WindowTitleHint |
+                            Qt.WindowCloseButtonHint |
+                            Qt.WindowStaysOnTopHint |
+                            Qt.WindowMinimizeButtonHint |
+                            Qt.MSWindowsFixedSizeDialogHint
                             )
 
 
