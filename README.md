@@ -1,6 +1,6 @@
 # PyQt Examples
 
-Bu repo PyQt ile yaptığım mini projeler için açılmıştır.<br>
+Bu repo PyQt ile yaptığım projeler için açılmıştır.<br>
 Elimden geldiğince örnekler eklemeye çalışacağım.
 
 ## Prerequisites
