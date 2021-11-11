@@ -86,7 +86,7 @@ class Doviz(QWidget):
         self.to_box.textChanged.connect(self.response) # Anlık olarak veri girdiysek çevirme işlemi yapıyor
 
     def html_content(self): # Döviz kurlarının aktarımı
-        url = f"https://api.frankfurter.app/latest?from={self.foreign_json[self.firstCurrency]}&to={self.foreign_json[self.secondCurrency]}"
+        url = f"https://api.frankfurter.app/latest?from={self.foreign_json[self.firstCurrency]}"
         self.url = requests.get(url)
         self.content = self.url.json()
         self.data = self.content["rates"][self.foreign_json[self.secondCurrency]]
@@ -118,11 +118,14 @@ class Doviz(QWidget):
 
     def exchange(self,first,second):
         if self.to_box.text(): # Qlineedit doluysa işleme giriyor
-            self.firstCurrency = first
-            self.secondCurrency = second
-            self.html_content()
-            self.box.setText(str(self.data * float(self.to_box.text()))) # Girdiğimiz miktarı kurla çarpıp yazdırıyoruz
-
+            if not (first == self.firstCurrency and second == self.secondCurrency):
+                self.firstCurrency = first
+                self.secondCurrency = second
+                self.html_content()
+                self.box.setText(str(self.data * float(self.to_box.text())))
+            else:# Dövizler aynı kalır ama girdiğimiz miktar değişirse internetten kuru çekmeden hafızadaki kur ile işlem yapıyor
+                self.box.setText(str(self.data * float(self.to_box.text()))) # Girdiğimiz miktarı kurla çarpıp yazdırıyoruz
+            
     def save_data(self): # Anlık olarak çevirdiğimiz kurları kaydediyor
         if self.to_box.isEnabled() and self.box.isEnabled():
             currency_ = f"{self.firstCombo} ----------> {self.secondCombo}\n{self.to_box.text()} tane {self.firstCombo}  =  {self.box.text()} tane {self.secondCombo}\nTarih: {self.now}\n\n"
