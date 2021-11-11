@@ -1,4 +1,4 @@
-__author__ = "FOX"
+sa__author__ = "FOX"
 
 import requests
 import sys
@@ -100,32 +100,35 @@ class Doviz(QWidget):
         except:
             pass
 
-    def click_to(self, firstCombo):# combo boxlarda veri seçildiyse Qlineeditleri aktif ediyoruz
-        self.firstCombo = firstCombo
+    def click_to(self, action):# combo boxlarda veri seçildiyse Qlineeditleri aktif ediyoruz
+        self.firstCombo = action
         if self.firstCombo != "Seçiniz...":
             self.to_box.setEnabled(True)
+            self.box.setEnabled(True)
             self.response() # combo boxları değiştirdiysek çevirme işlemi yapıyor
         else:
+            self.box.setEnabled(False)
             self.to_box.setEnabled(False)
 
-    def click(self, secondCombo):
-        self.secondCombo = secondCombo
-        if self.secondCombo != "Seçiniz...":
-            self.box.setEnabled(True)
-            self.response()
-        else:
-            self.box.setEnabled(False)
+    def click(self, action):
+        self.secondCombo = action
+        self.response()
 
     def exchange(self,first,second):
         if self.to_box.text(): # Qlineedit doluysa işleme giriyor
-            if not (first == self.firstCurrency and second == self.secondCurrency):
-                self.firstCurrency = first
-                self.secondCurrency = second
-                self.html_content()
-                self.box.setText(str(self.data * float(self.to_box.text())))
-            else:# Dövizler aynı kalır ama girdiğimiz miktar değişirse internetten kuru çekmeden hafızadaki kur ile işlem yapıyor
-                self.box.setText(str(self.data * float(self.to_box.text()))) # Girdiğimiz miktarı kurla çarpıp yazdırıyoruz
-            
+            if not first == self.firstCurrency or not second == self.secondCurrency:
+                if not (first == self.firstCurrency):
+                    self.firstCurrency = first
+                    self.secondCurrency = second
+                    self.html_content()
+                    self.box.setText(str(self.data * float(self.to_box.text())))
+                else: #
+                    self.secondCurrency = second
+                    self.data_ = self.content["rates"][self.foreign_json[self.secondCurrency]]
+                    self.box.setText(str(self.data_ * float(self.to_box.text())))
+            else: # Dövizler aynı kalır ama girdiğimiz miktar değişirse internetten kuru çekmeden hafızadaki kur ile işlem yapıyor
+                self.box.setText(str(self.data * float(self.to_box.text())))  # Girdiğimiz miktarı kurla çarpıp yazdırıyoruz
+
     def save_data(self): # Anlık olarak çevirdiğimiz kurları kaydediyor
         if self.to_box.isEnabled() and self.box.isEnabled():
             currency_ = f"{self.firstCombo} ----------> {self.secondCombo}\n{self.to_box.text()} tane {self.firstCombo}  =  {self.box.text()} tane {self.secondCombo}\nTarih: {self.now}\n\n"
@@ -142,8 +145,10 @@ class Doviz(QWidget):
                     if i != j: # Kendileri hariç bütün kurları birbiriyle eşleştirip anlık olarak kur çevirisini hesaplıyoruz
                         self.to_box.setEnabled(True)
                         self.to_box.setText("1")
+                        self.to_combo_box.setCurrentText(i)
+                        self.combo_box.setCurrentText(j)
                         self.exchange(i,j)
-                        currency_ += f"{i} -- {j} = {self.data}\n"
+                        currency_ += f"{i} -- {j} = {self.box.text()}\n"
 
             currency_ += f"\nTarih: {self.now}\n\n"
             folder_name = QFileDialog.getSaveFileName(self, "Verinizi Kaydedin...", 'DövizKuru', "Text Files (*.txt)")
