@@ -116,7 +116,7 @@ Klasör dizininde komut penceresini açıp "python exchange.py" | "python send_m
 
 ## Notes
 
-**Currency converter Kurları Kaydetme:** 33 döviz birimi olduğu için ( 33 * 32 = 1056 tane ) işlemi yapması biraz uzun sürebilir.<br><br>
+~~**Currency converter Kurları Kaydetme:** 33 döviz birimi olduğu için ( 33 * 32 = 1056 tane ) işlemi yapması biraz uzun sürebilir.~~**fixed**<br><br>
 
 **Password generator:** Varsayılan ayarlarda her blok için '84240' farklı ihtimal bulunur. Varsayılan ayarlarda  bir şifre için de ihtimal sayısı 421200'dür. ( Blok sayısı 5 olarak alınmıştır. )<br><br>
 
