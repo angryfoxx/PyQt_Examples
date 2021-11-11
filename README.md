@@ -128,4 +128,4 @@ Klasör dizininde komut penceresini açıp "python exchange.py" | "python send_m
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/angryfoxx/PyQt_Examples/blob/main/LICENSE) file for details
