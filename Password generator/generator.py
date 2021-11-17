@@ -93,7 +93,7 @@ class Main(QMainWindow):
         self.setCentralWidget(self.tema)
         self.setGeometry(500, 190, 700, 500)
         self.setWindowTitle("Password Generator")
-        self.setWindowIcon(QIcon("assets/unlock-alt-solid.svg"))
+        self.setWindowIcon(QIcon("Password generator/assets/unlock-alt-solid.svg"))
         self.resize(0, 0)
         self.setWindowFlags(Qt.Window |
                             Qt.CustomizeWindowHint |
