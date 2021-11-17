@@ -2,9 +2,8 @@ sa__author__ = "FOX"
 
 import requests
 import sys
-from datetime import datetime
 from PyQt5.QtWidgets import QWidget,QApplication,QLabel,QFileDialog,QMainWindow,qApp,QLineEdit,QComboBox,QPushButton,QDesktopWidget
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import QDate, Qt,QTimer,QDateTime
 from PyQt5.QtGui import QIcon,QPixmap,QDoubleValidator
 
 class Hata(QWidget): # Hatalı bir işlem ya da internet olmadığı gibi durumlarda hata mesajı çıkması için tasarlandı QMessageBox/QErrorBox'ta kullanılabilir ben OOP için birkaç deneme yapmak için kendim tasarladım
@@ -12,7 +11,7 @@ class Hata(QWidget): # Hatalı bir işlem ya da internet olmadığı gibi duruml
         super(Hata, self).__init__()
         self.resize(300,100)
         self.setWindowTitle("HATA")
-        self.setWindowIcon(QIcon("assets/unsuccesful70x64.svg"))
+        self.setWindowIcon(QIcon("Currency Converter/assets/unsuccesful70x64.svg"))
         self.setWindowFlags(Qt.Window |
                             Qt.CustomizeWindowHint |
                             Qt.WindowTitleHint |
@@ -28,7 +27,7 @@ class Hata(QWidget): # Hatalı bir işlem ya da internet olmadığı gibi duruml
         self.mess.setStyleSheet("color: Red; font-size 15px; font-weight: bold;")
         self.mess.move(90, 15)
         self.img = QLabel(self)
-        self.img.setPixmap(QPixmap("assets/unsuccesful70x64.svg"))
+        self.img.setPixmap(QPixmap("Currency Converter/assets/unsuccesful70x64.svg"))
         self.img.resize(70, 64)
         self.img.move(20, 13)
 
@@ -40,7 +39,7 @@ class Doviz(QWidget):
     def __init__(self):
         super(Doviz, self).__init__()
         self.hata = Hata()
-        self.now = datetime.now().strftime("%H.%M  |  %d.%m.%Y")
+        self.now = QDateTime.currentDateTime().toString("hh.mm.ss dd-MM-yyyy dddd")
         self.firstCurrency = ""
         self.secondCurrency = ""
         self.init_ui()
@@ -170,7 +169,6 @@ class Menu(QMainWindow):
         cp = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(cp)
         self.move(qtRectangle.topLeft())
-        self.dat = datetime.now().strftime("%d.%m.%Y")
         self.setWindowFlags(Qt.Window |
                             Qt.CustomizeWindowHint |
                             Qt.WindowTitleHint |
@@ -182,15 +180,15 @@ class Menu(QMainWindow):
 
     def init_ui(self):
         self.date = QLabel(self)
-        self.date.setText(self.dat)
-        self.date.move(237, 137)
+        self.date.resize(200,20)
+        self.date.move(140, 140)
 
         self.exc_png = QLabel(self)
-        self.exc_png.setPixmap(QPixmap("assets/vectorpaint0.svg"))
+        self.exc_png.setPixmap(QPixmap("Currency Converter/assets/vectorpaint0.svg"))
         self.exc_png.resize(48, 48)
         self.exc_png.move(130, 67)
 
-        self.setWindowIcon(QIcon("assets/vectorpaint.svg"))
+        self.setWindowIcon(QIcon("Currency Converter/assets/vectorpaint.svg"))
 
         self.menubar = self.menuBar()
         self.dosya = self.menubar.addMenu("Dosya")
@@ -206,6 +204,13 @@ class Menu(QMainWindow):
         self.cikis.setShortcut("Ctrl+Q")
 
         self.menubar.triggered.connect(self.topBar)
+
+        self.timer = QTimer()
+        self.timer.start(1000)
+        self.timer.timeout.connect(self.showTime)
+
+    def showTime(self):
+        self.date.setText(QDateTime.currentDateTime().toString("hh.mm.ss dd-MM-yyyy dddd"))
 
     def topBar(self, action):
         try: # Eğer Qlineeditler boşsa hata çıkarmasın diye try-except kullanıyoruz
