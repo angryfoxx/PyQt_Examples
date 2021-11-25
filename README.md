@@ -20,7 +20,7 @@ pip install -r requirements.txt
 <br><br>
 Pomodoro Tekniği, 1980'lerin sonunda Francesco Cirillo tarafından geliştirilen bir zaman yönetimi yöntemidir. Teknikte, iş geleneksel olarak 25 dakika uzunluğunda, kısa molalarla ayrılır. 
 <br>
-Kodlar tamamen bana aittir lakin tasarım sahibine buradan ulaşabilirsiniz. -> [Yuya Uzu](https://www.uzu.works)
+Kodlar tamamen bana aittir lakin tasarım bana ait değildir. Tasarımcının profiline buradan ulaşabilirsiniz. -> [Yuya Uzu](https://www.uzu.works)
 
 ### Kullanım
 
