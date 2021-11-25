@@ -9,10 +9,31 @@ Elimden geldiğince örnekler eklemeye çalışacağım.
 Python 3.x.x
 PyQt5
 requests
+pyler
 ```
 ```bash
 pip install -r requirements.txt
 ```
+
+## Pomodoro Timer
+![](https://i.hizliresim.com/pczl32j.png)
+<br><br>
+Pomodoro Tekniği, 1980'lerin sonunda Francesco Cirillo tarafından geliştirilen bir zaman yönetimi yöntemidir. Teknikte, iş geleneksel olarak 25 dakika uzunluğunda, kısa molalarla ayrılır. 
+<br>
+Kodlar tamamen bana aittir lakin tasarım sahibine buradan ulaşabilirsiniz. -> [Yuya Uzu](https://www.uzu.works)
+
+### Kullanım
+
+* Bir yapılacaklar listesi yapmak ve bir alarm saatine sahip olmak
+* Saati 25 dakikaya ayarlamak ve alarm çalana kadar tek bir göreve odaklanmak
+* Seans bittiğinde, bir pomodoro’yu işaretlemek ve tamamlanan görevi kaydetmek
+* 5 dakikalık bir ara vermek
+* Dört pomodoro’dan sonra 15 dakikalık uzun bir ara vermek
+<br><br>
+
+* Başlat'a bastıktan sonra zamanlayıcınız başlar
+* Üstteki bölmelerden molalara erken ulaşabilirsiniz veya geri seansa dönebilirsiniz.
+* Geç tuşuna bastığınızda seans sırasındaysanız molaya, moladaysanız seansa geçersiniz.
 
 ## Currency Converter
 
