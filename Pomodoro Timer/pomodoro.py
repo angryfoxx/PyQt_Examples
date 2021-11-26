@@ -17,18 +17,11 @@ class Design(QWidget):
         self._font = QFont()
         self._font.setFamily("Arial Rounded MT Bold")
 
-        self.up_btn_style = ("QPushButton{"
-                             "border: none;"
+        self.up_btn_style = ("border: none;"
                              "border-radius: 4px;"
                              "font-size: 16px;"
-                             "height: 31px;"
-                             "width: 141px;"
                              "color: white;"
-                             "background-color:none;}"
-
-                             "QPushButton:focus{"
-                             "background: none rgba(0, 0, 0, 0.15);"
-                             "font-weight: bold;}")
+                             "background-color:none;)
 
         self.bottom_btn_style = ("QPushButton{"
                                  "background-color:#ffffff;"
@@ -99,22 +92,26 @@ class Menu(QMainWindow):
         self.time = 0
         self.event = 0
         self.bar_value = 0
-        self.signal = 0
-
+        self.updt_up_btn_style = ("border: none;"
+                                  "border-radius: 4px;"
+                                  "font-size: 16px;"
+                                  "color: white;"
+                                  "background: none rgba(0, 0, 0, 0.15);"
+                                  "font-weight: bold;")
+                             
         self.init_ui()
 
     def init_ui(self):
-        self.signal += 1
         self.btn_pomo = QPushButton("Pomodoro", self.design.frame_2)
-        self.btn_pomo.move(70, 30)
+        self.btn_pomo.setGeometry(70, 30, 141, 31)
         self.btn_pomo.setStyleSheet(self.design.up_btn_style)
 
         self.btn_short_br = QPushButton("Kısa Mola", self.design.frame_2)
-        self.btn_short_br.move(220, 30)
+        self.btn_short_br.setGeometry(220, 30, 141, 31)
         self.btn_short_br.setStyleSheet(self.design.up_btn_style)
 
         self.btn_long_br = QPushButton("Uzun Mola", self.design.frame_2)
-        self.btn_long_br.move(370, 30)
+        self.btn_long_br.setGeometry(370, 30, 141, 31)
         self.btn_long_br.setStyleSheet(self.design.up_btn_style)
 
         self.btn_start = QPushButton("BAŞLAT", self.design.frame_2)
@@ -181,7 +178,7 @@ class Menu(QMainWindow):
         notification.notify(
             title = "Pomo-Fox",
             message = f"{self.info}",
-            app_icon = "assets\\533-tomato.ico"
+            app_icon = "assets/533-tomato.ico"
         )
 
     def msg_Box(self):
@@ -220,6 +217,9 @@ class Menu(QMainWindow):
         self.time = 1500
         self.event = 1
         self._for_bar()
+        self.btn_pomo.setStyleSheet(self.updt_up_btn_style)
+        self.btn_long_br.setStyleSheet(self.design.up_btn_style)
+        self.btn_short_br.setStyleSheet(self.design.up_btn_style)
 
     def short_br(self):
         self.endTimer()
@@ -230,6 +230,9 @@ class Menu(QMainWindow):
         self.time = 300
         self.event = 0
         self._for_bar()
+        self.btn_pomo.setStyleSheet(self.design.up_btn_style)
+        self.btn_long_br.setStyleSheet(self.design.up_btn_style)
+        self.btn_short_br.setStyleSheet(self.updt_up_btn_style)
 
     def long_br(self):
         self.endTimer()
@@ -240,7 +243,10 @@ class Menu(QMainWindow):
         self.time = 900
         self.event = 0
         self._for_bar()
-
+        self.btn_pomo.setStyleSheet(self.design.up_btn_style)
+        self.btn_long_br.setStyleSheet(self.updt_up_btn_style)
+        self.btn_short_br.setStyleSheet(self.design.up_btn_style)
+                             
     def _for_bar(self):
         self.design.progress_bar.setValue(0)
         self.amount_of_increase = 4500 / self.time
@@ -271,7 +277,6 @@ class Menu(QMainWindow):
     def endTimer(self):
         self.btn_start.setText("BAŞLAT")
         self.timer.stop()
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
