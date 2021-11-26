@@ -220,6 +220,7 @@ class Menu(QMainWindow):
         self.btn_pomo.setStyleSheet(self.updt_up_btn_style)
         self.btn_long_br.setStyleSheet(self.design.up_btn_style)
         self.btn_short_br.setStyleSheet(self.design.up_btn_style)
+        self.design.timer_label.setText("25:00")
 
     def short_br(self):
         self.endTimer()
@@ -233,6 +234,7 @@ class Menu(QMainWindow):
         self.btn_pomo.setStyleSheet(self.design.up_btn_style)
         self.btn_long_br.setStyleSheet(self.design.up_btn_style)
         self.btn_short_br.setStyleSheet(self.updt_up_btn_style)
+        self.design.timer_label.setText("05:00")
 
     def long_br(self):
         self.endTimer()
@@ -246,6 +248,7 @@ class Menu(QMainWindow):
         self.btn_pomo.setStyleSheet(self.design.up_btn_style)
         self.btn_long_br.setStyleSheet(self.updt_up_btn_style)
         self.btn_short_br.setStyleSheet(self.design.up_btn_style)
+        self.design.timer_label.setText("15:00")
                              
     def _for_bar(self):
         self.design.progress_bar.setValue(0)
