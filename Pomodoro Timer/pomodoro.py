@@ -21,7 +21,7 @@ class Design(QWidget):
                              "border-radius: 4px;"
                              "font-size: 16px;"
                              "color: white;"
-                             "background-color:none;)
+                             "background-color:none;")
 
         self.bottom_btn_style = ("QPushButton{"
                                  "background-color:#ffffff;"
