@@ -9,7 +9,7 @@ Elimden geldiğince örnekler eklemeye çalışacağım.
 Python 3.x.x
 PyQt5
 requests
-pyler
+plyer
 ```
 ```bash
 pip install -r requirements.txt
