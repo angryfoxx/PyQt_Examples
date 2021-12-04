@@ -147,7 +147,7 @@ class Doviz(QWidget):
                         self.to_combo_box.setCurrentText(i)
                         self.combo_box.setCurrentText(j)
                         self.exchange(i,j)
-                        currency_ += f"{i} -- {j} = {self.box.text()}\n"
+                        currency_ += ("{:<20} {:<5} {:<20} = {}\n".format(i,"--",j,self.box.text()))
 
             currency_ += f"\nTarih: {self.now}\n\n"
             folder_name = QFileDialog.getSaveFileName(self, "Verinizi Kaydedin...", 'DövizKuru', "Text Files (*.txt)")
