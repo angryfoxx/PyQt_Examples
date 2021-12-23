@@ -136,7 +136,7 @@ Büyütmek için *Yakınlaştır* veya *Ctrl + Artı* . Küçültmek için *Uzak
 Klasör dizininde komut penceresini açıp "python exchange.py" | "python send_mail.py" | "python generator.py" komutunu girdikten sonra program başlayacaktır.
 
 ## Notes
-**Pomodoro Timer:** Programı açtığınız ilk zaman başlat tuşuna iki kez basmanız gerekecektir. İlerleyen zamanda müsait olursam "To Do" eklenecektir.
+**Pomodoro Timer:** Programı açtığınız ilk zaman başlat tuşuna iki kez basmanız gerekecektir. İlerleyen zamanda müsait olursam "To Do" ekleyeceğim.
 
 ~~**Currency converter Kurları Kaydetme:** 33 döviz birimi olduğu için ( 33 * 32 = 1056 tane ) işlemi yapması biraz uzun sürebilir.~~ **Fixed**<br><br>
 
