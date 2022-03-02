@@ -42,7 +42,7 @@ Kodlar tamamen bana aittir lakin tasarım bana ait değildir. Tasarımcının pr
 Anlık olarak Dövizlerinizi dönüştüreceğiniz bir uygulama. <br>
 Döviz Kurları için kullandığım API -> [Frankfurter](https://www.frankfurter.app)
 <br>
-Avrupa Merkez Bankası tarafından yayınlanan döviz referans oranlarını takip eder. Veriler her günü saat 16.00 civarında yenilenir. 
+Avrupa Merkez Bankası tarafından yayınlanan döviz referans oranlarını takip eder. Veriler her gün saat 16.00 civarında yenilenir. 
 
 ### Kullanım
 
