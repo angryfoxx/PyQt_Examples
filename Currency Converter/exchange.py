@@ -70,7 +70,7 @@ class Doviz(QWidget):
                              "Macar Forinti": "HUF","Endonezya Rupisi": "IDR","Yeni İsrail Şekeli": "ILS","Hindistan Rupisi": "INR",
                              "İzlanda Kronu": "ISK","Japon Yeni": "JPY","Güney Kore Wonu": "KRW","Meksika Pesosu": "MXN",
                              "Malezya Ringgiti": "MYR","Norveç Kronu": "NOK","Yeni Zelanda Doları": "NZD","Filipin Pesosu": "PHP",
-                             "Polonya Zlotisi": "PLN","Rumen Leyi": "RON","Rus Rublesi": "RUB","İsveç Kronu": "SEK",
+                             "Polonya Zlotisi": "PLN","Rumen Leyi": "RON","İsveç Kronu": "SEK",
                              "Singapur Doları": "SGD","Tayland Bahtı": "THB","Türk Lirası": "TRY",
                              "Güney Afrika Randı": "ZAR"}
 
