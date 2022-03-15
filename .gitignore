@@ -107,3 +107,6 @@ ENV/
 
 *.DS_Store
 
+# Spec files 
+
+.spec/*
